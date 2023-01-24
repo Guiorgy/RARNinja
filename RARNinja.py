@@ -1,8 +1,8 @@
 import math
 import os
 import time
+from itertools import product
 from multiprocessing import Pool, Manager, cpu_count
-from itertools import combinations_with_replacement as combinations
 
 import colorama
 import rarfile
@@ -269,7 +269,7 @@ if __name__ == '__main__':
 
         dictionary = []
         for i in range(min_len, max_len + 1):
-            dictionary += [''.join(t) for t in combinations(alphabet, i)]
+            dictionary += [''.join(t) for t in product(alphabet, repeat=i)]
 
     showProgress = None
     while showProgress is None:
