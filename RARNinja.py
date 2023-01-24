@@ -67,7 +67,7 @@ def dictionary_crack(RAR, dictionary, stop_event, progress=False, thread=0):
         skipped = skip - 1
 
     with rarfile.RarFile(RAR, 'r') as rar:
-        for tries, line in enumerate(dictionary):
+        for tries, password in enumerate(dictionary):
             if stop_event.is_set():
                 break
 
@@ -78,7 +78,6 @@ def dictionary_crack(RAR, dictionary, stop_event, progress=False, thread=0):
                     percent = round(tries / lines * 100, 1)
                     print(f'[{thread}] Progress: {percent}%')
 
-            password = str(line).strip()
             try:
                 rar.extractall(path='./Extracted/', pwd=password)
                 print(colored(f'\n[{thread}] Cracked and extracted! Password: {password}', 'green'))
