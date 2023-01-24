@@ -55,7 +55,7 @@ def chunkify(source, *, chunk_size=None, chunks=None):
             chunk_size += 1
 
     for i in range(0, len(source), chunk_size):
-        yield source[i:(i + chunk_size)]
+        yield source[i:(i + chunk_size - 1)]
 
 
 def dictionary_crack(RAR, dictionary, stop_event, progress=False, thread=0):
