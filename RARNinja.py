@@ -335,5 +335,9 @@ if __name__ == '__main__':
     else:
         print(colored('Cracking of the password was unsuccessful', 'red'))
 
+        if completionTime != 0:
+            rate = (int(tries) // completionTime)
+            print(f'\n\nThe task completed in {round(completionTime)} seconds. (at ~{rate} tries/sec)')
+
     print('Press any key to exit.')
     input()
