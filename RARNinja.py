@@ -117,7 +117,7 @@ if __name__ == '__main__':
 
     RAR = None
     while RAR is None:
-        RAR = input('\nEnter RAR file path: ')
+        RAR = input('\nEnter RAR file path: ').strip()
 
         if not os.path.isfile(RAR):
             clear_screen()
@@ -127,18 +127,18 @@ if __name__ == '__main__':
     dictionary = None
     while dictionary is None:
         print('\nUse dictionary?')
-        dicPrompt = input('1. Yes\n2. No\n(Default: No)\n')
+        dicPrompt = input('1. Yes\n2. No\n(Default: No)\n').strip()
 
         if dicPrompt in ['1', 'y', 'Y', 'yes', 'Yes', 'YES']:
             while dictionary is None:
-                dictionary = input('Enter dictionary file path: ')
+                dictionary = input('Enter dictionary file path: ').strip()
 
                 if not os.path.isfile(dictionary):
                     clear_screen()
                     print('\nEither file does not exist or invalid path entered. Try again.\n')
                     dictionary = None
 
-        elif dicPrompt in ['', ' ', '0', 'n', 'N', 'no', 'No', 'NO']:
+        elif dicPrompt in ['', '0', 'n', 'N', 'no', 'No', 'NO']:
             dictionary = False
 
         else:
@@ -152,7 +152,7 @@ if __name__ == '__main__':
     else:
         min_len = None
         while min_len is None:
-            min_len = input('\nEnter the minimum password length: ')
+            min_len = input('\nEnter the minimum password length: ').strip()
 
             try:
                 min_len = int(min_len)
@@ -169,7 +169,7 @@ if __name__ == '__main__':
 
         max_len = None
         while max_len is None:
-            max_len = input('\nEnter the maximum password length: ')
+            max_len = input('\nEnter the maximum password length: ').strip()
 
             try:
                 max_len = int(max_len)
@@ -189,9 +189,9 @@ if __name__ == '__main__':
             useNumbers = None
             while useNumbers is None:
                 print('\nUse numbers? (0-9)')
-                numPrompt = input('1. Yes\n2. No\n(Default: Yes)\n')
+                numPrompt = input('1. Yes\n2. No\n(Default: Yes)\n').strip()
 
-                if numPrompt in ['', ' ', '1', 'y', 'Y', 'yes', 'Yes', 'YES']:
+                if numPrompt in ['', '1', 'y', 'Y', 'yes', 'Yes', 'YES']:
                     useNumbers = True
 
                 elif numPrompt in ['0', 'n', 'N', 'no', 'No', 'NO']:
@@ -204,9 +204,9 @@ if __name__ == '__main__':
             useLetters = None
             while useLetters is None:
                 print('\nUse English letters? (a-z, A-Z)')
-                letterPrompt = input('1. Yes\n2. No\n(Default: Yes)\n')
+                letterPrompt = input('1. Yes\n2. No\n(Default: Yes)\n').strip()
 
-                if letterPrompt in ['', ' ', '1', 'y', 'Y', 'yes', 'Yes', 'YES']:
+                if letterPrompt in ['', '1', 'y', 'Y', 'yes', 'Yes', 'YES']:
                     useLetters = True
 
                 elif letterPrompt in ['0', 'n', 'N', 'no', 'No', 'NO']:
@@ -219,9 +219,9 @@ if __name__ == '__main__':
             useSymbols = None
             while useSymbols is None:
                 print('\nUse symbols? ( !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~)')
-                symsPrompt = input('1. Yes\n2. No\n(Default: Yes)\n')
+                symsPrompt = input('1. Yes\n2. No\n(Default: Yes)\n').strip()
 
-                if symsPrompt in ['', ' ', '1', 'y', 'Y', 'yes', 'Yes', 'YES']:
+                if symsPrompt in ['', '1', 'y', 'Y', 'yes', 'Yes', 'YES']:
                     useSymbols = True
 
                 elif symsPrompt in ['0', 'n', 'N', 'no', 'No', 'NO']:
@@ -234,13 +234,13 @@ if __name__ == '__main__':
             customChars = None
             while customChars is None:
                 print('\nUse custom characters? (You\'ll enter them next)')
-                charsPrompt = input('1. Yes\n2. No\n(Default: No)\n')
+                charsPrompt = input('1. Yes\n2. No\n(Default: No)\n').strip()
 
                 if charsPrompt in ['1', 'y', 'Y', 'yes', 'Yes', 'YES']:
                     customChars = input('\nEnter the custom characters (in a single line): ')
                     customChars = set(*customChars)
 
-                elif charsPrompt in ['', ' ', '0', 'n', 'N', 'no', 'No', 'NO']:
+                elif charsPrompt in ['', '0', 'n', 'N', 'no', 'No', 'NO']:
                     customChars = False
 
                 else:
@@ -273,12 +273,12 @@ if __name__ == '__main__':
     showProgress = None
     while showProgress is None:
         print('\nShow progress?')
-        progressPrompt = input('1. Yes (slower)\n2. No (faster)\n(Default: No)\n')
+        progressPrompt = input('1. Yes (slower)\n2. No (faster)\n(Default: No)\n').strip()
 
         if progressPrompt in ['1', 'y', 'Y', 'yes', 'Yes', 'YES']:
             showProgress = True
 
-        elif progressPrompt in ['', ' ', '0', 'n', 'N', 'no', 'No', 'NO']:
+        elif progressPrompt in ['', '0', 'n', 'N', 'no', 'No', 'NO']:
             showProgress = False
 
         else:
@@ -289,7 +289,7 @@ if __name__ == '__main__':
     def_threads = max(1, max_threads - 2)
     threads = None
     while threads is None:
-        threads = input(f'\nEnter number of parallel threads (Max: {max_threads}, Default: {def_threads}): ')
+        threads = input(f'\nEnter number of parallel threads (Max: {max_threads}, Default: {def_threads}): ').strip()
 
         try:
             threads = def_threads if not threads else int(threads)
