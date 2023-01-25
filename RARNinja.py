@@ -88,6 +88,9 @@ def dictionary_crack(RAR, dictionary, stop_event, progress=False, thread=0):
             except:
                 pass
 
+    if progress and correct_password is None:
+        print(f'[{thread}] Progress: 100.0%')
+
     return correct_password, tries
 
 
