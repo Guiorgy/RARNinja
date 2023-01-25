@@ -286,12 +286,13 @@ if __name__ == '__main__':
             print('\nInvalid entry. Try again.\n')
 
     max_threads = cpu_count()
+    def_threads = max(1, max_threads - 2)
     threads = None
     while threads is None:
-        threads = input(f'\nEnter number of parallel threads (max {max_threads}): ')
+        threads = input(f'\nEnter number of parallel threads (Max: {max_threads}, Default: {def_threads}): ')
 
         try:
-            threads = int(threads)
+            threads = def_threads if not threads else int(threads)
 
             if 1 > threads > max_threads:
                 clear_screen()
